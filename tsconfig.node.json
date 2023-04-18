@@ -1,0 +1,65 @@
+{
+  "extends" : "@vue/tsconfig/tsconfig.node.json",
+  "include" : [
+    "vite.config.*",
+    "vite.base.config.*",
+    "vite.dev.config.*",
+    "vite.prod.config.*",
+    "vitest.config.*",
+    "cypress.config.*",
+    "playwright.config.*",
+    "src/**/*.ts",
+    "src/**/*.js",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.jsx",
+    "src/**/*.vue",
+    "src/vite.env.d.ts"
+  ],
+  "compilerOptions" : {
+    "emitDecoratorMetadata" : true,
+    "experimentalDecorators" : false,
+    "composite" : true,
+    "types" : [
+      "node",
+      "vite-plugin-checker"
+    ],
+    "module" : "ESNext",
+    "moduleResolution" : "Node",
+    "allowSyntheticDefaultImports" : true,
+    "outDir" : "build/dist",
+    "target" : "ESNext",
+    // 非绝对、相对路径，从 node_modules 找依赖（第三方依赖）
+    "strict" : true,
+    "jsx" : "preserve",
+    // 支持jsx
+    "resolveJsonModule" : true,
+    "isolatedModules" : true,
+    "esModuleInterop" : true,
+    "lib" : [
+      "ES2021",
+      "ESNext",
+      "DOM"
+    ],
+    "skipLibCheck" : true,
+    // 跳过node_modules目录检查
+    "noEmit" : true,
+    "baseUrl" : ".",
+    "paths" : {
+      "@/*" : [
+        "./src/*"
+      ]
+    },
+    "allowJs" : true,
+    "plugins" : [
+      {
+        "name" : "typescript-plugin-css-modules"
+      }
+    ]
+  },
+  "exclude" : [
+    "node_modules",
+    "build",
+    "dist"
+  ]
+}
